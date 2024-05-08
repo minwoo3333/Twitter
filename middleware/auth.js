@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken';
 import * as authRepository from '../data/auth.js';
 
-const AUTH_ERROR = {messagr: "인증에러"};
+const AUTH_ERROR = {message: "인증에러"};
 
 export const isAuth = async (req, res, next) => {
     const authHeader = req.get('Authorization');
     console.log(authHeader);
-    if(!(authHeader && authHeader.startsWith('Bearer '))){
+    if(!(authHeader && authHeader.startsWith('Bearer'))){
         console.log('에러1');
         return res.status(401).json(AUTH_ERROR);
     }
